@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-color: #9eff00; /* Kept as requested */
+  --primary-dark: #7acc00; /* Darker shade of primary for depth */
+  --secondary-color: #00c2ff; /* Vibrant cyan for contrast */
+  --accent-color: #ff6b6b; /* Soft red for accents */
+  --background-color: #0a0a0a; /* Slightly lighter than pure black */
+  --surface-color: #141414; /* Subtle difference for layering */
+  --text-color: #f0f0f0; /* Off-white for better readability */
+  --text-muted: #a0a0a0; /* Muted text color */
+  --footer-text: #c0c0c0; /* Lighter footer text for better contrast */
+  --grey-100: #1a1a1a; /* Darkest grey */
+  --grey-200: #2a2a2a; /* Dark grey */
+  --grey-300: #3a3a3a; /* Medium grey */
+  --grey-400: #4a4a4a; /* Light grey */
+  --hover-color: #b3ff33; /* Lighter shade of primary for hover effects */
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  --transition-speed: 0.3s;
+  --font-primary: 'Manrope', sans-serif;
+  --font-secondary: 'Inter', sans-serif;
+  --header-height: 80px;
+  --cursor-size: 25px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+  font-family: var(--font-primary);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--cursor-size);
+  height: var(--cursor-size);
+  background: var(--primary-color);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease-out, background 0.3s ease;
+  z-index: 9999;
+  mix-blend-mode: difference;
+}
+
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--background-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+
+.loader__content {
+  width: 50px;
+  height: 50px;
+  border: 5px solid var(--grey-200);
+  border-top: 5px solid var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 2rem;
+  background: var(--primary-color);
+  color: var(--background-color);
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-speed);
+  text-decoration: none;
+  margin-bottom: 3rem;
+  font-family: var(--font-secondary);
+  text-transform: uppercase;
+}
+
+.btn:hover {
+  background: var(--hover-color);
+  transform: translateY(-2px);
+  color: var(--background-color);
+}
+
+.pill-card {
+  background-color: var(--grey-200);
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  color: var(--text-color);
+  font-size: 1rem;
+  transition: background-color 0.3s, transform 0.3s;
+  cursor: pointer;
+  font-family: var(--font-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.pill-card:hover {
+  background-color: var(--primary-color);
+  transform: scale(1.05);
+  color: var(--background-color);
+}
